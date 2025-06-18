@@ -36,20 +36,19 @@ A smart and simple React + Spring Boot full-stack application to track income, e
 ### 🔧 Setup Instructions
 
 1. **Clone the repository**
-- git clone https://github.com/yourusername/Tracker-Backend.git
+- git clone https://github.com/parmjotsingh/Tracker-Backend.git
 - cd Tracker-Backend
 2. **Update DB configuration**
 - Goto properties file
 - Edit src/main/resources/application.properties:
-    application.properties
-        spring.datasource.url=jdbc:mysql://{YourDatabaseURL}:{yourDatabasePortNumber}/trackerdb
-        spring.datasource.username=yourusername
-        spring.datasource.password=yourpassword
-        spring.jpa.hibernate.ddl-auto=update
+    1. spring.datasource.url=jdbc:mysql://{YourDatabaseURL}:{yourDatabasePortNumber}/trackerdb
+    2. spring.datasource.username=yourusername
+    3. spring.datasource.password=yourpassword
+    4. spring.jpa.hibernate.ddl-auto=update
 3. **Build and run the app**
 - ./mvnw clean install
 - ./mvnw spring-boot:run
-4. **Server will start at: **
+4. **Server will start at:**
 - http://localhost:8080
 
 # API Endpoints
@@ -69,3 +68,6 @@ Note:
 ###Use tools like:
 - Postman or Insomnia for API testing
 - mvn test for unit/integration tests (if configured)
+
+# Check the FRONTEND code at the following github repositiory
+- https://github.com/parmjotsingh/Tracker
