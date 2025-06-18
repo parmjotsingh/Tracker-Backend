@@ -35,17 +35,18 @@ public class SecurityConfig {
 	private JwtAuthenticationFilter jwtAuthenticationFilter;
 	@Autowired
 	private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
-
+	
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.csrf(csrf -> csrf.disable())
 				.authorizeHttpRequests((authorizeHttpRequest) -> authorizeHttpRequest
-						.requestMatchers("/api/v1/auth/**").permitAll().requestMatchers(HttpMethod.GET).permitAll().anyRequest().authenticated())
+						.requestMatchers("/api/v1/auth/**").permitAll().anyRequest().authenticated())
 				.exceptionHandling().authenticationEntryPoint(this.jwtAuthenticationEntryPoint).and().sessionManagement(
 						sessionManagment -> sessionManagment.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
 		http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 		return http.build();
+		//.requestMatchers(HttpMethod.GET).permitAll()
 	}
 
 	@Bean
